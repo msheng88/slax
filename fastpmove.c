@@ -35,11 +35,10 @@ main(int argc, char *argv[])
     fl = atoi(argv[2]);
     printf("faspmove  ch=%d, step=%d  \n", ch, fl);
 
-    a = 6;			//spank
-
+    a = 6;			 
     sprintf(chid, "/dev1/dmc1001_%d", ch);
     printf("ch=%d, %s\n", ch, chid);
-//fd1=open("/dev1/dmc1001_6",2); //y
+ 
     fd1 = open(chid, 2);
 
     p.lParm1 = fl;
@@ -49,7 +48,7 @@ main(int argc, char *argv[])
     while (done == 0) {
 	a = ioctl(fd1, M_CHECKDONE, &p);
 	done = p.bParm1;
-	//printf("done=%d\n",done);
+	 
 	usleep(1000);
     }
 
