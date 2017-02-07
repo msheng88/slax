@@ -11,8 +11,6 @@
 #include <sys/stat.h>
 #include <sys/time.h>
 #include <fcntl.h>
-//#include "../commondef.h"
-//#include "../modpub.h"
 #include <linux/ioctl.h>
 
 
@@ -67,16 +65,13 @@ main(int argc, char *argv[])
 	printf("ex: fastpmove 1 100 \n");
 	exit(0);
     }
-
     ch = atoi(argv[1]);
     fl = atoi(argv[2]);
     printf("fp3 ch=%d, step=%d  \n", ch, fl);
-
     a = 6;			//spank
 
     sprintf(chid, "/dev1/dmc1001_%d", ch);
     printf("ch=%d, %s\n", ch, chid);
-//fd1=open("/dev1/dmc1001_6",2); //y
     fd1 = open(chid, 2);
 
     p.lParm1 = fl;
@@ -91,6 +86,5 @@ main(int argc, char *argv[])
 	usleep(1000);
 	if (c>4000) done=1;
     }
-
     close(fd1);
 }
