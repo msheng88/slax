@@ -1,4 +1,5 @@
-
+//2016 test dmc device driver 
+//
 #include <stdio.h>
 #include <assert.h>
 #include <syslog.h>
